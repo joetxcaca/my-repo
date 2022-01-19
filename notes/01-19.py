@@ -11,8 +11,8 @@ Cold Calling
 	it's totally fine to not know the answer, the idea is to discuss and to learn
 
 Lectures
-	MWF 10 am, Alex,	 Anshul
-	MWF 11 am, Mengning, Vaishnav
+	MWF 10 am, Anshul, Vaishnav
+	MWF 11 am, Alex,   Mengning
 
 Help Sessions
 	T  6-8 pm,
