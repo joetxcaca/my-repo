@@ -1,63 +1,57 @@
 # -----------
-# Wed, 25 Aug
+# Wed, 19 Jan
 # -----------
 
 """
 Class Modality
-	first three weeks on Zoom, you're welcome to go to physical room
-	my prediction is that we'll go hybrid after that
+	first two weeks on Zoom, you're welcome to go to physical room
 
 Cold Calling
 	you're only called ONCE per rotation
 	it's totally fine to not know the answer, the idea is to discuss and to learn
 
 Lectures
-	MWF 10 am, Alex,      Caitlin
-	MWF 11 am, Jefferson, Mengning
+	MWF 10 am, Alex,	 Anshul
+	MWF 11 am, Mengning, Vaishnav
 
 Help Sessions
-	T  6-8 pm, Caitlin, Jefferson
-	Th 6-8 pm, Alex,    Mengning
+	T  6-8 pm,
+	Th 6-8 pm,
 
 Office Hours
-	Glenn
+	Glenn Downing
 		Th 3-4 pm
 
-	Alex ('23)
-		T 12-1 pm
+	Alex Zuzow (grad, '23)
+		TBD
 
-	Caitlin ('22)
-		W 3-4 pm
+	Anshul Modh (undergrad, '22)
+		TBD
 
-	Jefferson ('21)
-		M 1-2 pm
+	Mengning (grad, '22)
+		TBD
 
-	Mengning ('22)
-		M 3-4 pm
+	Vaishnav Bipin (undergrad, '23)
+		TBD
 
-Content
-	there is almost a complete DISCONNECT between lectures
-	lectures will be about Python, SQL, UML, refactoring
-	and the programming projects, in particular, the Web projects
+Canvas
+	personal questions
+	please message all 5 of us
 
 CATME, peer assessment platform
 	create student groups
 	peer review
 	4 group Web projects
 
-Canvas
-	personal questions
-	please message all 5 of us
-
 Ed Discussion (EdStem), replaces Piazza
 	class questions
 	ask and answer questions
 	please be proactive
 
-GitLab, like GitHub, do a git clone, later git pull, on  a regular basis
+GitLab, like GitHub, do a git clone, later git pull, on	 a regular basis
 	notes
 	examples
-	exercise
+	exercises
 
 HackerRank, competitive programming platform
 	exercises
@@ -67,8 +61,15 @@ Perusall, collaborative annotation tool
 	the first one will be the syllabus
 
 Zoom
-    5.7.6
+	5.9.1
 	must use UT EID credentials (@eid.utexas.edu)
 	classes recorded
 	published later that day
+
+Specifications Grading
+	please ask about this if you don't undestand it
+	please use the Google Sheet that we're providing to track your grades
+
+Website
+	https://www.cs.utexas.edu/users/downing/cs373/Schedule.html
 """
