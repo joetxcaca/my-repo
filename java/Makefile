@@ -23,6 +23,7 @@ sync:
 	make clean
 	@echo ~/examples/java/
 	@rsync -r -t -u -v --delete            \
+    --include "Hello.java"                 \
     --exclude "*"                          \
     ~/examples/java/ .
 	@echo ~/exercises/java/
