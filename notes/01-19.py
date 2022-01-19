@@ -4,42 +4,42 @@
 
 """
 Class Modality
-	first two weeks on Zoom, you're welcome to go to physical room
+	first two weeks on Zoom, you're welcome to go to physical room (PAR 301)
 
 Cold Calling
 	you're only called ONCE per rotation
 	it's totally fine to not know the answer, the idea is to discuss and to learn
 
-Lectures
+Lectures (you must attend your lecture)
 	MWF 10 am, Anshul, Vaishnav
 	MWF 11 am, Alex,   Mengning
 
 Help Sessions
-	T  6-8 pm,
-	Th 6-8 pm,
+	T  6-8 pm, Anshul, Vaishnav
+	Th 6-8 pm, Alex, Mengning
 
 Office Hours
 	Glenn Downing
-		Th 3-4 pm
+		Th 3-4 pm, Zoom
 
 	Alex Zuzow (grad, '23)
-		TBD
+		T 12-1 pm, Zoom
 
 	Anshul Modh (undergrad, '22)
-		TBD
+		Th 11-12 pm, Zoom
 
 	Mengning (grad, '22)
-		TBD
+		W 1-2 pm, Zoom
 
 	Vaishnav Bipin (undergrad, '23)
-		TBD
+		M 4-5 pm, Zoom
 
 Canvas
 	personal questions
 	please message all 5 of us
 
 CATME, peer assessment platform
-	create student groups
+	create student groups (you have no control who you will be with)
 	peer review
 	4 group Web projects
 
@@ -56,7 +56,7 @@ GitLab, like GitHub, do a git clone, later git pull, on	 a regular basis
 HackerRank, competitive programming platform
 	exercises
 
-Perusall, collaborative annotation tool
+Perusall, collaborative annotation tool (always go to Perusall via Canvas)
 	annotate a series of papers
 	the first one will be the syllabus
 
@@ -99,23 +99,23 @@ annual collegiate competitive programming contest
 teams of 3, using C, C++, Java, or Python
 biweekly contests at UT
 around 110 regions around the world
-our regional contest: South Central USA
+our regional contest: South Central USA (usually at Baylor in Waco)
 around 65 teams, 25 schools, 3 states
 we send 4 teams
-2014: 2, M
-2015, 2, T
-2016: 1, So
-2017: 1, Be
-2018: 1, Po
-2019: 1, Mo
-2020: -, Ba
+2014: 2nd, Rice (1st), Morocco
+2015, 2nd, Rice (1st), Thailand
+2016: 1st, 2nd, 3rd, 4th, South Dakota!!!
+2017: 1st, Bejing
+2018: 1st, Portugal
+2019: 1st, Moscow (actually did it remotely! because of COVID)
+2020: -, Bangladesh
 
 https://www.cs.utexas.edu/users/utpc/
 https://discord.gg/hjQAveZ
 
 CS 104c: Competitive Programming
 https://www.cs.utexas.edu/users/downing/cs104c/
-weekly, Fridays, 2 pm, GDC 1.304
+weekly, Fridays, 2 pm, GDC 1.304, first two weeks on Zoom
 
 
 
@@ -124,12 +124,12 @@ weekly, Fridays, 2 pm, GDC 1.304
 UT Chess
 https://www.sites.utexas.edu/utchessclub/
 https://discord.gg/f2eMxzW
-weekly, Mondays, 6 pm, Dobie Food Court
+weekly, Mondays, 6 pm, Dobie Food Court (first two weeks on Zoom)
 
 
 
 
 
-Google "cs371p fall 2021 final entry"
+Google "cs373 fall 2021 final entry"
 Perusall Syllabus assignment
 """
