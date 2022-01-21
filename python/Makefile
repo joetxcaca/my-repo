@@ -56,6 +56,8 @@ sync:
 	make clean
 	@echo ~/examples/python/
 	@rsync -r -t -u -v --delete            \
+    --include "Dockerfile"                 \
+    --include "Script"                     \
     --include "Hello.py"                   \
     --exclude "*"                          \
     ~/examples/python/ .

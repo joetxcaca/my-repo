@@ -9,11 +9,10 @@
 # --------
 
 # https://www.python.org
-# https://docs.python.org/3.8/
-# https://docs.python.org/3.8/library/
+# https://docs.python.org/3.9/
+# https://docs.python.org/3.9/library/
 # https://www.pylint.org
 # https://www.python.org/dev/peps/pep-0008/
-# http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html
 
 if __name__ == "__main__" :      # pragma: no cover
     print("Nothing to be done.")
@@ -33,7 +32,7 @@ Python 3: 2008
 
 
 % python3 --version
-Python 3.9.1
+Python 3.9.10
 
 
 
@@ -54,24 +53,20 @@ Nothing to be done.
 
 
 % python3
-Python 3.9.1 (default, Jan  8 2021, 17:17:43)
-[Clang 12.0.0 (clang-1200.0.32.28)] on darwin
+Python 3.9.10 (main, Jan 15 2022, 11:48:04)
+[Clang 13.0.0 (clang-1300.0.29.3)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
-
-
 
 >>> import Hello
 Nothing to be done.
-
-
 
 >>> quit()
 
 
 
 % python3
-Python 3.9.1 (default, Jan  8 2021, 17:17:43)
-[Clang 12.0.0 (clang-1200.0.32.28)] on darwin
+Python 3.9.10 (main, Jan 15 2022, 11:48:04)
+[Clang 13.0.0 (clang-1300.0.29.3)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 
 >>> help()
@@ -90,12 +85,8 @@ To get a list of available modules, keywords, symbols, or topics, type
 with a one-line summary of what it does; to list the modules whose name
 or summary contain a given string such as "spam", type "modules spam".
 
-
-
 help> range
 ...
-
-
 
 help> quit
 
@@ -109,8 +100,8 @@ has the same effect as typing a particular string at the help> prompt.
 
 
 % python3
-Python 3.9.1 (default, Jan  8 2021, 17:17:43)
-[Clang 12.0.0 (clang-1200.0.32.28)] on darwin
+Python 3.9.10 (main, Jan 15 2022, 11:48:04)
+[Clang 13.0.0 (clang-1300.0.29.3)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 
 >>> import this
