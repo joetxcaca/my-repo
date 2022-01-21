@@ -57,7 +57,7 @@ sync:
 	@echo ~/examples/python/
 	@rsync -r -t -u -v --delete            \
     --include "Dockerfile"                 \
-    --include "Script"                     \
+    --include "Script.txt"                 \
     --include "Hello.py"                   \
     --exclude "*"                          \
     ~/examples/python/ .

@@ -1,0 +1,173 @@
+https://hub.docker.com/r/gpdowning/python/
+
+
+
+% which docker
+/usr/local/bin/docker
+
+
+
+% docker --version
+Docker version 20.10.12, build e91ed57
+
+
+
+% docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+
+
+
+% cat Dockerfile
+FROM python
+
+RUN apt-get update
+
+RUN apt-get -y install dos2unix
+RUN apt-get -y install libboost-dev
+RUN apt-get -y install libgmp-dev
+RUN apt-get -y install vim
+
+RUN pip install --upgrade pip
+RUN pip --version
+
+RUN pip install black
+RUN pip install coverage
+RUN pip install mypy
+RUN pip install numpy
+RUN pip install pylint
+
+RUN git clone https://github.com/DOMjudge/checktestdata checktestdata && \
+    cd checktestdata                                                  && \
+    git checkout release                                              && \
+    ./bootstrap                                                       && \
+    make                                                              && \
+    cp checktestdata /usr/bin                                         && \
+    cd -
+
+CMD bash
+
+
+
+% docker build -t gpdowning/python .
+...
+
+
+
+% docker login
+...
+
+
+
+% docker push gpdowning/python
+...
+
+
+
+% docker pull gpdowning/python
+...
+
+
+
+% docker images
+REPOSITORY         TAG       IMAGE ID       CREATED          SIZE
+gpdowning/python   latest    149abb40cecd   15 minutes ago   1.34GB
+python             latest    cecf555903c6   2 days ago       917MB
+
+
+
+
+% pwd
+/Users/downing/git/cs373/python
+
+
+
+% ls
+Assertions.py	Dockerfile	Hello.py	Script.txt	makefile
+
+
+
+% docker run --rm -i -t -v /Users/downing/git/cs373/python:/usr/python -w /usr/python gpdowning/python
+root@a4fe84a658f0:/usr/python# pwd
+/usr/python
+
+
+
+root@a4fe84a658f0:/usr/python# ls
+Assertions.py	Dockerfile	Hello.py	Script.txt	makefile
+
+
+
+root@a4fe84a658f0:/usr/python# which black
+/usr/local/bin/black
+root@a4fe84a658f0:/usr/python# black --version
+black, 21.12b0 (compiled: no)
+
+
+
+root@a4fe84a658f0:/usr/gcc# which checktestdata
+/usr/bin/checktestdata
+root@c70871d08248:/usr/gcc# checktestdata --version
+checktestdata -- version 20220121, written by Jan Kuipers, Jaap Eldering, Tobias Werth
+
+
+
+root@a4fe84a658f0:/usr/python# which coverage
+/usr/local/bin/coverage
+root@a4fe84a658f0:/usr/python# coverage --version
+Coverage.py, version 6.2 with C extension
+
+
+
+root@a4fe84a658f0:/usr/python# which git
+/usr/bin/git
+root@a4fe84a658f0:/usr/python# git --version
+git version 2.30.2
+
+
+
+root@a4fe84a658f0:/usr/python# which make
+/usr/bin/make
+root@a4fe84a658f0:/usr/python# make --version
+GNU Make 4.3
+
+
+
+root@a4fe84a658f0:/usr/python# which mypy
+/usr/local/bin/mypy
+root@a4fe84a658f0:/usr/python# mypy --version
+mypy 0.931
+
+
+
+root@a4fe84a658f0:/usr/python# which pip
+/usr/local/bin/pip
+root@a4fe84a658f0:/usr/python# pip --version
+pip 21.3.1 from /usr/local/lib/python3.10/site-packages/pip (python 3.10)
+
+
+
+root@a4fe84a658f0:/usr/python# which pydoc
+/usr/local/bin/pydoc
+root@a4fe84a658f0:/usr/python# pydoc --version
+...
+
+
+
+root@a4fe84a658f0:/usr/python# which pylint
+/usr/local/bin/pylint
+root@a4fe84a658f0:/usr/python# pylint --version
+pylint 2.12.2
+
+
+
+root@a4fe84a658f0:/usr/python# which python
+/usr/local/bin/python
+root@a4fe84a658f0:/usr/python# python --version
+Python 3.10.2
+
+
+
+root@a4fe84a658f0:/usr/python# which vim
+/usr/bin/vim
+root@a4fe84a658f0:/usr/python# vim --version
+VIM - Vi IMproved 8.2 (2019 Dec 12, compiled Oct 01 2021 01:51:08)
