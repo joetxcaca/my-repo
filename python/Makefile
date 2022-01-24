@@ -27,8 +27,7 @@ else
 endif
 
 FILES  :=                   \
-    Hello                   \
-    Assertions
+    Hello
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
