@@ -27,7 +27,8 @@ else
 endif
 
 FILES  :=                   \
-    Hello
+    Hello                   \
+    Assertions
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
@@ -59,6 +60,7 @@ sync:
     --include "Dockerfile"                 \
     --include "Script.txt"                 \
     --include "Hello.py"                   \
+    --include "Assertions.py"              \
     --exclude "*"                          \
     ~/examples/python/ .
 	@echo ~/exercises/python/
