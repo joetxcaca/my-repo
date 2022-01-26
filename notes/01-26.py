@@ -61,7 +61,7 @@ Perusall, collaborative annotation tool (always go to Perusall via Canvas)
 	the first one will be the syllabus
 
 Zoom
-	5.9.1
+	5.9.3
 	must use UT EID credentials (@eid.utexas.edu)
 	classes recorded
 	published later that day
@@ -89,3 +89,185 @@ specifications grading
 huge disconnect between lectures and Web project
 """
 
+"""
+Paper #02: 2022-01-30: Makefile
+you MUST go to Perusall THROUGH Canvas
+"""
+
+"""
+Project #1: Collatz
+"""
+
+# sample input
+
+1 10
+100 200
+201 210
+900 1000
+
+# sample output
+
+1 10 20
+100 200 125
+201 210 89
+900 1000 174
+
+"""
+read a pair
+compute the answer
+output a triple: the original pair and the answer
+
+compute the cycle length on all the numbers in the range specified by the pair
+the answer is the max cycle length
+"""
+
+"""
+read eval print (REPL)
+"""
+
+# sample input (alternative)
+
+4
+1 10
+100 200
+201 210
+900 1000
+
+# sample input (alternative)
+
+1 10 -> "1 10" -> ["1", "10"] -> [1, 10]
+100 200
+201 210
+900 1000
+<sentinel>
+
+"""
+three styles of specifying the amount of input
+	1. simply give the input, expect a read to eventually fail
+	2. specify the amount beforehand
+	3. a sentinel at the end
+"""
+
+"""
+the skeleton comes in three parts
+	1. Collatz.py,     the kernel, the computation of the solution
+	2. TestCollatz.py, the test harness, using Python's unittest, a unit test framework
+	3. RunCollatz.py,  the run  harness, which runs the program the way HackerRank wants
+"""
+
+"""
+to submit to HackerRank
+you need to MERGE Collatz.py and RunCollatz.py -> MyHackerRank.py
+"""
+
+#!/usr/bin/env python3
+
+# --------------
+# TestCollatz.py
+# --------------
+
+# pylint: disable = invalid-name
+# pylint: disable = missing-docstring
+
+# -------
+# imports
+# -------
+
+import unittest # main, TestCase
+import Collatz  # max_cycle_length, the kernel
+
+# -----------
+# TestCollatz
+# -----------
+
+class TestCollatz (unittest.TestCase) :
+    # ----
+    # eval
+    # ----
+
+    def test_max_cycle_length_0 (self) :
+        self.assertEqual(Collatz.max_cycle_length(1, 10), 20)
+
+    def test_max_cycle_length_1 (self) :
+        self.assertEqual(Collatz.max_cycle_length(100, 200), 125)
+
+    def test_max_cycle_length_2 (self) :
+        self.assertEqual(Collatz.max_cycle_length(201, 210), 89)
+
+    def test_max_cycle_length_3 (self) :
+        self.assertEqual(Collatz.max_cycle_length(900, 1000), 174)
+
+# ----
+# main
+# ----
+
+if __name__ == "__main__" : #pragma: no cover
+    unittest.main()
+
+#!/usr/bin/env python3
+
+# -------------
+# RunCollatz.py
+# -------------
+
+# pylint: disable = invalid-name
+# pylint: disable = missing-docstring
+
+# -------
+# imports
+# -------
+
+import sys
+import Collatz # the kernel
+
+# ----
+# main
+# ----
+
+def main () :
+    for s in sys.stdin : # what is the type of s? string
+        # ----
+        # read
+        # ----
+
+        a = [int(v) for v in s.split()] # what is the return type of split()? list of strings
+										# build another list with the int constructor applied to each string
+        # ----
+        # eval
+        # ----
+
+        v = Collatz.max_cycle_length(*a) # how many args does max_cycle_length()? 2 args
+
+        # -----
+        # print
+        # -----
+
+        print(*a, v) # how many args are we feeding print()? 3
+
+if __name__ == "__main__" :
+    main()
+
+
+
+#!/usr/bin/env python3
+
+# ----------
+# Collatz.py
+# ----------
+
+# pylint: disable = invalid-name
+# pylint: disable = missing-docstring
+
+# ----------------
+# max_cycle_length
+# ----------------
+
+def max_cycle_length (i: int, j: int) -> int :
+    assert i > 0
+    assert j > 0
+
+    # <your code>
+    v = i + j     # replace!
+
+    assert v > 0
+    return v
