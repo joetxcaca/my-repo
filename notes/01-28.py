@@ -96,6 +96,7 @@ you MUST go to Perusall THROUGH Canvas
 
 """
 Project #1: Collatz
+Academic Integrity Quiz
 """
 
 n + (n >> 1) + 1
