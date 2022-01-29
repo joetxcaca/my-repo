@@ -33,7 +33,7 @@ if __name__ == "__main__" : # pragma: no cover
     print("Done.")
 
 """ #pragma: no cover
-% Assertions.py
+% ./Assertions.py
 Assertions.py
 Traceback (most recent call last):
   File "./Assertions.py", line 32, in <module>

@@ -1,5 +1,5 @@
 # -----------
-# Fri, 28 Jan
+# Mon, 31 Jan
 # -----------
 
 """
@@ -96,95 +96,4 @@ you MUST go to Perusall THROUGH Canvas
 
 """
 Project #1: Collatz
-"""
-
-n + (n >> 1) + 1
-
-# cycle length
-# even, divide   by 2
-# odd,  multiply by 3 and add 1
-
-3n + 1 # always produces an even
-
-def cycle_length (n: int) -> int :
-    assert n > 0
-    c = 0
-    while n > 1 :
-        if (n % 2) == 0 :
-            n = (n // 2)
-        else :
-            n = (3 * n) + 1
-        c += 1
-    assert c > 0
-    return c
-
-(3n + 1) / 2
-3n/2 + 1/2 # but, n is odd
-3/2  + 1
-n + n/2 + 1
-n + (n >> 1) + 1
-
-mcl(10, 100)
-b = 10
-e = 100
-m = (e/2 + 1) = 51
-# m > b
-mcl(10, 100) = mcl(51, 100)
-# we need to be convinced that
-mcl(10, 50) # doesn't matter
-
-mcl(200,300)
-b = 200
-e = 300
-m = 151
-# m is not > b
-# no claim
-
-mcl(1, 10)
-
-"""
-always start with the simplest solution
-always take small simple steps in improving
-"""
-
-"""
-first step
-simplest possible solution
-NO optimizations
-NO caching
-"""
-
-"""
-you can use checktestdata to produce random pairs
-you can then run your simple solution locally, to produce the correct corresponding triples
-"""
-
-"""
-second step
-implement the optimizations from the quiz
-rerun the tests
-"""
-
-"""
-third step
-implement caching
-"""
-
-"""
-three kinds of caching
-	1. lazy cache; we are caching as a result of reading in the test case
-		an array, a Python list
-		a. only store the direct numbers
-		b. store the intermediate numbers
-		how big should the cache be?
-			1,000,000: store every possible case
-			it's not obvious that this is the best choice
-			try different sizes
-	2. eager cache: caching before the first read
-		how big should the cache be?
-			1,000,000: store every possible case
-			it's not obvious that this is the best choice
-			try different sizes
-	3. meta cache: caching outside of the HackerRank computation
-		HackerRank has a limit of 50k
 """
