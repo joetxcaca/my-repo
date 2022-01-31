@@ -4,7 +4,7 @@
 
 """
 Class Modality
-	first two weeks on Zoom, you're welcome to go to physical room (PAR 301)
+	online until further notice
 
 Cold Calling
 	you're only called ONCE per rotation
@@ -99,3 +99,402 @@ Project #1: Collatz
 Poll: Project #1: Collatz
 Academic Integrity Quiz
 """
+
+"""
+lazy cache
+	on HackerRank, caching as result of reading the input
+eager cache
+	on HackerRank, caching is done before the first read
+meta cache
+	NOT on HackerRank, hardwiring the source code with the cache, < 50 K
+"""
+
+"""
+what if explored caching max cycle lenghts
+what if we cached max cycle lengths certain ranges
+
+1-1000
+1001-2000
+2001-3000
+...
+999,001-1,000,000
+"""
+
+"""
+mcl(500, 2500)
+lookup
+	1001-2000
+compute
+	500-1000
+	2001-2500
+"""
+
+"""
+I want a range size that produces the most ranges that still into 50K
+"""
+
+#!/usr/bin/env python3
+
+# pylint: disable = invalid-name
+# pylint: disable = missing-docstring
+# pylint: disable = pointless-string-statement
+
+# -------------
+# UnitTests1.py
+# -------------
+
+# https://docs.python.org/3/library/unittest.html
+# https://docs.python.org/3/library/unittest.html#assert-methods
+
+import unittest # main, TestCase
+
+def cycle_length (n: int) -> int :
+    assert n > 0
+    c = 0
+    while n > 1 :
+        if (n % 2) == 0 :
+            n = (n // 2)
+        else :
+            n = (3 * n) + 1
+        c += 1
+    assert c > 0
+    return c
+
+class MyUnitTests (unittest.TestCase) :
+    def test0 (self) :
+        self.assertEqual(cycle_length( 1), 1)
+
+    def test1 (self) :
+        self.assertEqual(cycle_length( 5), 6)
+
+    def test2 (self) :
+        self.assertEqual(cycle_length(10), 7)
+
+if __name__ == "__main__" : # pragma: no cover
+    unittest.main()
+
+""" #pragma: no cover
+% ./UnitTests1T.py
+FFF
+======================================================================
+FAIL: test0 (__main__.MyUnitTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/downing/Dropbox/examples/python/./UnitTests1.py", line 30, in test0
+    self.assertEqual(cycle_length( 1), 1)
+  File "/Users/downing/Dropbox/examples/python/./UnitTests1.py", line 25, in cycle_length
+    assert c > 0
+AssertionError
+
+======================================================================
+FAIL: test1 (__main__.MyUnitTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/downing/Dropbox/examples/python/./UnitTests1.py", line 33, in test1
+    self.assertEqual(cycle_length( 5), 6)
+AssertionError: 5 != 6
+
+======================================================================
+FAIL: test2 (__main__.MyUnitTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/downing/Dropbox/examples/python/./UnitTests1.py", line 36, in test2
+    self.assertEqual(cycle_length(10), 7)
+AssertionError: 6 != 7
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+FAILED (failures=3)
+"""
+
+
+
+#!/usr/bin/env python3
+
+# pylint: disable = invalid-name
+# pylint: disable = missing-docstring
+# pylint: disable = pointless-string-statement
+
+# -------------
+# UnitTests2.py
+# -------------
+
+# https://docs.python.org/3/library/unittest.html
+# https://docs.python.org/3/library/unittest.html#assert-methods
+
+import unittest # main, TestCase
+
+def cycle_length (n: int) -> int :
+    assert n > 0
+    c = 1
+    while n > 1 :
+        if (n % 2) == 0 :
+            n = (n // 2)
+        else :
+            n = (3 * n) + 1
+        c += 1
+    assert c > 0
+    return c
+
+class MyUnitTests (unittest.TestCase) :
+    def test0 (self) :
+        self.assertEqual(cycle_length( 1), 1)
+
+    def test1 (self) :
+        self.assertEqual(cycle_length( 5), 5)
+
+    def test2 (self) :
+        self.assertEqual(cycle_length(10), 7)
+
+if __name__ == "__main__" : # pragma: no cover
+    unittest.main()
+
+""" #pragma: no cover
+% ./UnitTests2T.py
+.F.
+======================================================================
+FAIL: test1 (__main__.MyUnitTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/downing/Dropbox/examples/python/./UnitTests2.py", line 33, in test1
+    self.assertEqual(cycle_length( 5), 5)
+AssertionError: 6 != 5
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+FAILED (failures=1)
+"""
+
+
+
+
+#!/usr/bin/env python3
+
+# pylint: disable = invalid-name
+# pylint: disable = missing-docstring
+# pylint: disable = pointless-string-statement
+
+# -------------
+# UnitTests3.py
+# -------------
+
+# https://docs.python.org/3/library/unittest.html
+# https://docs.python.org/3/library/unittest.html#assert-methods
+
+import unittest # main, TestCase
+
+def cycle_length (n: int) -> int :
+    assert n > 0
+    c = 1
+    while n > 1 :
+        if (n % 2) == 0 :
+            n = (n // 2)
+        else :
+            n = (3 * n) + 1
+        c += 1
+    assert c > 0
+    return c
+
+class MyUnitTests (unittest.TestCase) :
+    def test0 (self) :
+        self.assertEqual(cycle_length( 1), 1)
+
+    def test1 (self) :
+        self.assertEqual(cycle_length( 5), 6)
+
+    def test2 (self) :
+        self.assertEqual(cycle_length(10), 7)
+
+if __name__ == "__main__" : # pragma: no cover
+    unittest.main()
+
+""" #pragma: no cover
+% ./UnitTests3T.py
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+"""
+
+#!/usr/bin/env python3
+
+# pylint: disable = invalid-name
+# pylint: disable = missing-docstring
+# pylint: disable = pointless-string-statement
+
+# ------------
+# Coverage1.py
+# ------------
+
+# https://coverage.readthedocs.org
+
+import unittest # main, TestCase
+
+def cycle_length (n: int) -> int :
+    assert n > 0
+    c = 1
+    while n > 1 :
+        if (n % 2) == 0 :
+            n = (n // 2)
+        else :
+            n = (3 * n) + 1
+        c += 1
+    assert c > 0
+    return c
+
+class MyUnitTests (unittest.TestCase) :
+    def test (self) :
+        self.assertEqual(cycle_length(1), 1)
+
+if __name__ == "__main__" : # pragma: no cover
+    unittest.main()
+
+""" #pragma: no cover
+% which coverage
+/usr/local/bin/coverage
+
+
+
+% coverage --version
+Coverage.py, version 5.5 with C extension
+Full documentation is at https://coverage.readthedocs.io
+
+
+
+% coverage --help
+...
+
+
+
+% coverage run --branch Coverage1.py
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+
+
+
+% ls -al .coverage
+-rw-r--r--@ 1 downing  staff  53248 Jan 27 14:25 .coverage
+
+
+
+% coverage report -m
+Name           Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------------
+Coverage1.py      14      4      4      1    61%   19-23
+----------------------------------------------------------
+TOTAL             14      4      4      1    61%
+"""
+
+
+
+#!/usr/bin/env python3
+
+# pylint: disable = invalid-name
+# pylint: disable = missing-docstring
+# pylint: disable = pointless-string-statement
+
+# ------------
+# Coverage2.py
+# ------------
+
+# https://coverage.readthedocs.org
+
+import unittest # main, TestCase
+
+def cycle_length (n: int) -> int :
+    assert n > 0
+    c = 1
+    while n > 1 :
+        if (n % 2) == 0 :
+            n = (n // 2)
+        else :
+            n = (3 * n) + 1
+        c += 1
+    assert c > 0
+    return c
+
+class MyUnitTests (unittest.TestCase) :
+    def test (self) :
+        self.assertEqual(cycle_length(2), 2)
+
+if __name__ == "__main__" : # pragma: no cover
+    unittest.main()
+
+""" #pragma: no cover
+% coverage run --branch Coverage2T.py
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+
+
+
+% coverage report -m
+Name           Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------------
+Coverage2.py      14      1      4      1    89%   22
+----------------------------------------------------------
+TOTAL             14      1      4      1    89%
+"""
+
+
+
+#!/usr/bin/env python3
+
+# pylint: disable = invalid-name
+# pylint: disable = missing-docstring
+# pylint: disable = pointless-string-statement
+
+# ------------
+# Coverage3.py
+# ------------
+
+# https://coverage.readthedocs.org
+
+import unittest # main, TestCase
+
+def cycle_length (n: int) -> int :
+    assert n > 0
+    c = 1
+    while n > 1 :
+        if (n % 2) == 0 :
+            n = (n // 2)
+        else :
+            n = (3 * n) + 1
+        c += 1
+    assert c > 0
+    return c
+
+class MyUnitTests (unittest.TestCase) :
+    def test (self) :
+        self.assertEqual(cycle_length(3), 8)
+
+if __name__ == "__main__" : # pragma: no cover
+    unittest.main()
+
+""" #pragma: no cover
+% coverage run --branch Coverage3T.py
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+
+
+
+% coverage report -m
+Name           Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------------
+Coverage3.py      14      0      4      0   100%
+----------------------------------------------------------
+TOTAL             14      0      4      0   100%
+"""
+
+docker run --rm -i -t -v $(PWD):/usr/python -w /usr/python python
