@@ -27,7 +27,11 @@ else
 endif
 
 FILES  :=                   \
-    Hello
+    Hello                   \
+    UnitTests1              \
+    Coverage1               \
+    Coverage2               \
+    Coverage3
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
@@ -60,6 +64,12 @@ sync:
     --include "Script.txt"                 \
     --include "Hello.py"                   \
     --include "Assertions.py"              \
+    --include "UnitTests1.py"              \
+    --include "UnitTests2.py"              \
+    --include "UnitTests3.py"              \
+    --include "Coverage1.py"               \
+    --include "Coverage2.py"               \
+    --include "Coverage3.py"               \
     --exclude "*"                          \
     ~/examples/python/ .
 	@echo ~/exercises/python/
