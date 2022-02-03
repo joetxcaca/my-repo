@@ -1,5 +1,5 @@
 # -----------
-# Wed,  2 Feb
+# Fri,  4 Feb
 # -----------
 
 """
@@ -103,91 +103,3 @@ Add
 SHELL := /bin/bash
 to the Makefile.
 """
-
-"""
-first exercise
-on HackerRank
-I will give you a URL
-I will give you a password
-
-1. e-mail (any e-mail)
-2. password (I will provide)
-3. name (all the names of all of the students)
-4. EID  (all the EIDs  of all of the students)
-
-breakout rooms
-1. ONE of you to volunteer to drive
-	SHARE their screen and do all the typing
-	ask for help
-	submit the solution
-2. Please turn ON your video
-3. Everyone please collaborate
-
-Before you submit ask for one of us to visit your room and ok the code
-"""
-
-#!/usr/bin/env python3
-
-# pylint: disable = eval-used
-# pylint: disable = invalid-name
-# pylint: disable = missing-docstring
-# pylint: disable = pointless-string-statement
-
-# -----------
-# IsPrimeH.py
-# -----------
-
-import math
-
-def is_prime (n: int) -> bool :
-    assert n > 0
-    if (n == 2)
-    	return True
-    if (n == 1) or ((n % 2) == 0) :
-        return False
-    for i in range(3, int(math.sqrt(n) + 1), 2) :
-        if (n % i) == 0 :
-            return False
-    return True
-
-def test0 () :
-    assert not is_prime(1)
-
-def test1 () :
-    assert is_prime(2) # broken
-
-def test2 () :
-    assert is_prime(3)
-
-def test3 () :
-    assert not is_prime(4)
-
-def test4 () :
-    assert is_prime(5)
-
-def test5 () :
-    assert is_prime(7)
-
-def test6 () :
-    assert not is_prime(9) # broken
-
-def test7 () :
-    assert not is_prime(27)
-
-def test8 () :
-    assert is_prime(29)
-
-"""
-broken tests can hide broken code
-"""
-
-"""
-1. run the code as is, confirm success
-2. identify and remember and fix the broken tests
-3. run the code again, confirm failure
-4. identify and remember and fix the broken code
-5. run the code again, confirm success
-"""
-
-https://hr.gs/cs373-spring-2022-is-prime
-1234
