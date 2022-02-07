@@ -1,5 +1,5 @@
 # -----------
-# Fri,  4 Feb
+# Mon,  7 Feb
 # -----------
 
 """
@@ -102,4 +102,12 @@ Academic Integrity Quiz
 Add
 SHELL := /bin/bash
 to the Makefile.
+
+.gitlab-ci.yml
+make run-all
 """
+
+"""
+virtual tokens
+"""
+

@@ -31,7 +31,9 @@ FILES  :=                   \
     UnitTests1              \
     Coverage1               \
     Coverage2               \
-    Coverage3
+    Coverage3               \
+    IsPrimeT                \
+    Exceptions
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
@@ -70,10 +72,12 @@ sync:
     --include "Coverage1.py"               \
     --include "Coverage2.py"               \
     --include "Coverage3.py"               \
+    --include "Exceptions.py"              \
     --exclude "*"                          \
     ~/examples/python/ .
 	@echo ~/exercises/python/
 	@rsync -r -t -u -v --delete            \
+    --include "IsPrimeT.py"                \
     --exclude "*"                          \
     ~/exercises/python/ .
 
