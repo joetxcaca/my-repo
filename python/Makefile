@@ -33,7 +33,8 @@ FILES  :=                   \
     Coverage2               \
     Coverage3               \
     IsPrimeT                \
-    Exceptions
+    Exceptions              \
+    Types
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
@@ -73,6 +74,7 @@ sync:
     --include "Coverage2.py"               \
     --include "Coverage3.py"               \
     --include "Exceptions.py"              \
+    --include "Types.py"                   \
     --exclude "*"                          \
     ~/examples/python/ .
 	@echo ~/exercises/python/
