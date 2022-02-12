@@ -34,20 +34,23 @@ def test2 () :
     i  = 255
     i +=   1
     j  = 256
-    assert i is j
-    i  = 256                     # cache: [-5, 256]
+    assert i is j                # value caching
+    i  = 256
     i +=   1
     j  = 257
-    assert i is not j
+    assert i is not j            # cache: [-5, 256]
     assert i ==     j
+    i = 257
+    j = 257
+    assert i is j                # literal caching
     i =  -4
     i -=  1
     j =  -5
     assert i is j
-    i =  -5                      # cache: [-5, 256]
+    i =  -5
     i -=  1
     j =  -6
-    assert i is not j
+    assert i is not j            # cache: [-5, 256]
     assert i ==     j
     assert isinstance(i,   int)
     assert isinstance(int, type)
