@@ -81,6 +81,9 @@ Grades Tracker Google Sheet
 
 Virtual Token Google Form
 	https://forms.gle/evXiWYUc6wqHzffb6/
+
+Teams
+	https://docs.google.com/spreadsheets/d/1dmteNPBFr6wc-OAksyKTdGrg1RDN0EMzUiNbixt-iSY/
 """
 
 """
@@ -90,6 +93,46 @@ huge disconnect between lectures and Web project
 """
 
 """
-Paper #4: 2022-02-13: Pair Programming
+Paper #5: Single Responsibility Principle
 you MUST go to Perusall THROUGH Canvas
+
+this is the first of a 5-paper series
+SOLID design
 """
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
