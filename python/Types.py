@@ -40,9 +40,8 @@ def test2 () :
     j  = 257
     assert i is not j            # cache: [-5, 256]
     assert i ==     j
-    i = 257
-    j = 257
-    assert i is j                # literal caching
+    k: int = 257
+    assert j is     k            # literal caching
     i =  -4
     i -=  1
     j =  -5
@@ -60,6 +59,8 @@ def test3 () :
     g: float = 0.0
     assert f is not g
     assert f ==     g
+    h: float = 0.0
+    assert g is     h               # literal caching
     assert isinstance(f,     float)
     assert isinstance(float, type)
 
@@ -68,6 +69,8 @@ def test4 () :
     d: complex = 0 + 0j
     assert c is not d
     assert c ==     d
+    e: complex = 0 + 0j
+    assert d is     e                   # literal caching
     assert isinstance(c,       complex)
     assert isinstance(complex, type)
 
