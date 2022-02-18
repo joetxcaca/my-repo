@@ -1,5 +1,5 @@
 # -----------
-# Fri, 18 Feb
+# Mon, 21 Feb
 # -----------
 
 """
@@ -120,59 +120,3 @@ Project #2: IDB1
 https://www.cs.utexas.edu/users/downing/cs373/Groups.html
 """
 
-def my_factorial (n) :
-    ...
-
-def test0 () :
-    assert my_factorial(0) == 1
-
-def test1 () :
-    assert my_factorial(1) == 1
-
-def test2 () :
-    assert my_factorial(2) == 2
-
-def test3 () :
-    assert my_factorial(3) == 6
-
-def test4 () :
-    assert my_factorial(4) == 24
-
-def test5 () :
-    assert my_factorial(5) == 120
-
-"""
-twice
-	recursively
-	iteratively
-"""
-
-4712
-
-# recursive procedure
-# linear recursive process
-# 0.006 milliseconds
-int factorial_recursion (int n) {
-    assert(n >= 0);
-    if (n < 2)
-        return 1;
-    return n * factorial_recursion(n - 1);}
-
-
-
-
-
-# recursive procedure
-# linear iterative process, no stack frame is needed
-# for some language and some compiler this will automatically be converted into iteration
-# 0.011 milliseconds
-int factorial_tail_recursion_aux (int n, int m) {
-    assert(n >= 0);
-    assert(m >= 1);
-    if (n < 2)
-        return m;
-    return factorial_tail_recursion_aux(n - 1, n * m);}
-
-int factorial_tail_recursion (int n) {
-    assert(n >= 0);
-    return factorial_tail_recursion_aux(n, 1);}

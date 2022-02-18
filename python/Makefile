@@ -34,7 +34,8 @@ FILES  :=                   \
     Coverage3               \
     IsPrimeT                \
     Exceptions              \
-    Types
+    Types                   \
+    FactorialT
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
@@ -80,6 +81,7 @@ sync:
 	@echo ~/exercises/python/
 	@rsync -r -t -u -v --delete            \
     --include "IsPrimeT.py"                \
+    --include "FactorialT.py"              \
     --exclude "*"                          \
     ~/exercises/python/ .
 
