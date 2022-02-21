@@ -60,7 +60,7 @@ def factorial_while (n: int) -> int :
 
 # iterative procedure
 # linear iterative process
-# 6 milliseconds
+# 7 milliseconds
 def factorial_range_for (n: int) -> int :
     assert n >= 0
     v = 1
@@ -74,7 +74,7 @@ def factorial_range_for (n: int) -> int :
 
 # iterative procedure
 # linear iterative process
-# 12 milliseconds
+# 10 milliseconds
 def factorial_range_iterator (n: int) -> int :
     assert n >= 0
     v = 1
@@ -96,7 +96,7 @@ def my_mul (x, y) :
 
 # iterative procedure
 # linear iterative process
-# 11 milliseconds
+# 9 milliseconds
 def factorial_range_reduce_1 (n: int) -> int :
     assert n >= 0
     return functools.reduce(my_mul, range(1, n + 1), 1)
@@ -107,10 +107,10 @@ def factorial_range_reduce_1 (n: int) -> int :
 
 # iterative procedure
 # linear iterative process
-# 8 milliseconds
+# 10 milliseconds
 def factorial_range_reduce_2 (n: int) -> int :
     assert n >= 0
-    return functools.reduce(operator.mul, range(1, n + 1), 1)
+    return functools.reduce(lambda x, y : x * y, range(1, n + 1), 1)
 
 
 
@@ -118,10 +118,10 @@ def factorial_range_reduce_2 (n: int) -> int :
 
 # iterative procedure
 # linear iterative process
-# 12 milliseconds
+# 6 milliseconds
 def factorial_range_reduce_3 (n: int) -> int :
     assert n >= 0
-    return functools.reduce(lambda x, y : x * y, range(1, n + 1), 1)
+    return functools.reduce(operator.mul, range(1, n + 1), 1)
 
 
 
@@ -194,31 +194,31 @@ if __name__ == "__main__" : # pragma: no cover
 % FactorialT.py
 ......
 factorial_recursion
-14.43 milliseconds
+14.66 milliseconds
 
 factorial_tail_recursion
-18.50 milliseconds
+19.34 milliseconds
 
 factorial_while
-9.60 milliseconds
+9.47 milliseconds
 
 factorial_range_for
-6.00 milliseconds
+6.42 milliseconds
 
 factorial_range_iterator
-9.31 milliseconds
+9.66 milliseconds
 
 factorial_range_reduce_1
-8.78 milliseconds
+9.31 milliseconds
 
 factorial_range_reduce_2
-5.44 milliseconds
+9.97 milliseconds
 
 factorial_range_reduce_3
-10.03 milliseconds
+5.61 milliseconds
 
 factorial
-0.91 milliseconds
+0.88 milliseconds
 .
 ----------------------------------------------------------------------
 Ran 7 tests in 0.086s
