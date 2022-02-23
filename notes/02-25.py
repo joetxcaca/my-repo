@@ -1,5 +1,5 @@
 # -----------
-# Wed, 23 Feb
+# Fri, 25 Feb
 # -----------
 
 """
@@ -122,27 +122,5 @@ Project #2: IDB1
 	14. customer teams to give feedback to developer teams about the technical report
 
 https://www.cs.utexas.edu/users/downing/cs373/Groups.html
-"""
-
-def my_reduce (bf, a, v) :
-	for i in a :
-		v = bf(v, i)
-	return v
-
-def test0 () :
-    assert my_reduce(operator.add,  [2, 3, 4], 0) == 9
-
-def test1 () :
-    assert my_reduce(operator.mul,  (2, 3, 4), 1) == 24
-
-def test2 () :
-    assert my_reduce(operator.sub,  {2, 3, 4}, 2) == -7
-
-def test3 () :
-    assert my_reduce(None,          [],        3) == 3
-
-"""
-don't index
-don't check for any particular BF or None
 """
 

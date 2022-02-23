@@ -82,6 +82,7 @@ sync:
 	@rsync -r -t -u -v --delete            \
     --include "IsPrimeT.py"                \
     --include "FactorialT.py"              \
+    --include "ReduceT.py"                 \
     --exclude "*"                          \
     ~/exercises/python/ .
 
