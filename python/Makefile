@@ -76,6 +76,7 @@ sync:
     --include "Coverage3.py"               \
     --include "Exceptions.py"              \
     --include "Types.py"                   \
+    --include "Operators.py"               \
     --exclude "*"                          \
     ~/examples/python/ .
 	@echo ~/exercises/python/
