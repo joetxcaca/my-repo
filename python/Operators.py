@@ -12,10 +12,11 @@
 # ------------
 
 # https://docs.python.org/3/library/operator.html
+# https://docs.python.org/3/reference/datamodel.html
 # https://graphics.stanford.edu/~seander/bithacks.html
 
-from copy     import copy, deepcopy
-from operator import add
+import copy
+import operator
 
 def test1 () :
     i = 2
@@ -34,7 +35,7 @@ def test2 () :
 def test3 () :
     i = 2
     j = 3
-    k = add(i, j) # addition
+    k = operator.add(i, j) # addition
     assert i == 2
     assert j == 3
     assert k == 5
@@ -191,22 +192,26 @@ def test22 () :
 
 def test23 () :
     s = "abc"
-    assert s[1]             == "b" # str index
-    assert s.__getitem__(1) == "b"
-    #s[1] = "d"                    # TypeError: 'str' object does not support item assignment
+    assert s[1]                 == "b" # str index
+    assert s.__getitem__(1)     == "b"
+    assert str.__getitem__(s,1) == "b"
+    #s[1] = "d"                        # TypeError: 'str' object does not support item assignment
 
 def test24 () :
     a = [2, 3, 4]
-    assert a[1]             == 3 # list index
-    assert a.__getitem__(1) == 3
+    assert a[1]                   == 3 # list index
+    assert a.__getitem__(1)       == 3
+    assert list.__getitem__(a, 1) == 3
     a[1] = 5
+    a.__setitem__(1, 5)
     assert a == [2, 5, 4]
 
 def test25 () :
     u = (2, 3, 4)
-    assert u[1]             == 3 # tuple index
-    assert u.__getitem__(1) == 3
-    #u[1] = 5                    # TypeError: 'tuple' object does not support item assignment
+    assert u[1]                    == 3 # tuple index
+    assert u.__getitem__(1)        == 3
+    assert tuple.__getitem__(u, 1) == 3
+    #u[1] = 5                           # TypeError: 'tuple' object does not support item assignment
 
 def test26 () :
     a = [2, 3, 4]
@@ -216,10 +221,11 @@ def test26 () :
     assert a[1 : 2] == [3] # list slicing
 
     s = slice(1, 2)
-    assert s.start          == 1
-    assert s.stop           == 2
-    assert a[s]             == [3]
-    assert a.__getitem__(s) == [3]
+    assert s.start                == 1
+    assert s.stop                 == 2
+    assert a[s]                   == [3]
+    assert a.__getitem__(s)       == [3]
+    assert list.__getitem__(a, s) == [3]
 
     assert a[ 1 : 3] == [3, 4]
     assert a[-2 : 3] == [3, 4]
@@ -228,11 +234,12 @@ def test26 () :
     assert a[0 : 3 : 2] == [2, 4]
 
     s = slice(0, 3, 2)
-    assert s.start          == 0
-    assert s.stop           == 3
-    assert s.step           == 2
-    assert a[s]             == [2, 4]
-    assert a.__getitem__(s) == [2, 4]
+    assert s.start                == 0
+    assert s.stop                 == 3
+    assert s.step                 == 2
+    assert a[s]                   == [2, 4]
+    assert a.__getitem__(s)       == [2, 4]
+    assert list.__getitem__(a, s) == [2, 4]
 
     assert a[2 : -4 : -2] == [4, 2]
     assert a[:]           == [2, 3, 4]
@@ -253,7 +260,7 @@ def test28 () :
 
 def test29 () :
     a = [2, 3, 4]
-    b = copy(a)
+    b = copy.copy(a)
     assert a is not b
     assert a ==     b
     b[1] += 1
@@ -262,7 +269,7 @@ def test29 () :
 
 def test30 () :
     u = (2, 3, 4)
-    v = copy(u)
+    v = copy.copy(u)
     assert u is v
 
 def test31 () :
@@ -276,7 +283,7 @@ def test31 () :
 def test32 () :
     a = [2, 3, 4]
     b = [1, a, 5]
-    c = copy(b)
+    c = copy.copy(b)
     assert b    is not c
     assert b    ==     c
     assert b[1] is     c[1]
@@ -284,7 +291,7 @@ def test32 () :
 def test33 () :
     a = [2, 3, 4]
     b = [1, a, 5]
-    c = deepcopy(b)
+    c = copy.deepcopy(b)
     assert b    is not c
     assert b    ==     c
     assert b[1] is not c[1]
@@ -294,6 +301,8 @@ def test34 () :
     s = "a"
     t = "bc"
     u = s + t             # string concatenation
+    u = s.__add__(t)
+    u = str.__add__(s, t)
     assert u is not "abc"
     assert u ==     "abc"
 
@@ -301,6 +310,8 @@ def test35 () :
     a = [2]
     b = [3, 4]
     c = a + b                 # list concatenation
+    c = a.__add__(b)
+    c = list.__add__(a, b)
     assert c is not [2, 3, 4]
     assert c ==     [2, 3, 4]
     assert c !=     (2, 3, 4)
@@ -309,25 +320,33 @@ def test36 () :
     u = (2,)
     v = (3, 4)
     w = (u + v)               # tuple concatenation
+    w = u.__add__(v)
+    w = tuple.__add__(u, v)
     assert w is not (2, 3, 4)
     assert w ==     (2, 3, 4)
     assert w !=     [2, 3, 4]
 
 def test37 () :
     s = "abc"
-    t = 2 * s                # string replication
+    t = s * 2                # string replication
+    t = s.__mul__(2)
+    t = str.__mul__(s, 2)
     assert t is not "abcabc"
     assert t ==     "abcabc"
 
 def test38 () :
     a = [2, 3, 4]
-    b = 2 * a                          # list replication
+    b = a * 2                          # list replication
+    b = a.__mul__(2)
+    b = list.__mul__(a, 2)
     assert b is not [2, 3, 4, 2, 3, 4]
     assert b ==     [2, 3, 4, 2, 3, 4]
 
 def test39 () :
     u = (2, 3, 4)
-    v = 2 * u                          # tuple replication
+    v = u * 2                          # tuple replication
+    v = u.__mul__(2)
+    v = tuple.__mul__(u, 2)
     assert u is not (2, 3, 4, 2, 3, 4)
     assert v ==     (2, 3, 4, 2, 3, 4)
 
@@ -336,7 +355,9 @@ def test40 () :
     b = a
     assert a is b
     b += [5]
-    assert a == [2, 3, 4, 5]
+    b.__iadd__([6])
+    list.__iadd__(b, [7])
+    assert a == [2, 3, 4, 5, 6, 7]
     assert a is b
 
 def test41 () :
@@ -344,7 +365,9 @@ def test41 () :
     b = a
     assert a is b
     b += (5,)
-    assert a == [2, 3, 4, 5]
+    b.__iadd__((6,))
+    list.__iadd__(b, (7,))
+    assert a == [2, 3, 4, 5, 6, 7]
     assert a is b
 
 def test42 () :
@@ -352,8 +375,10 @@ def test42 () :
     b = a
     assert a is b
     b = b + [5]
+    b = b.__add__([6])
+    b = list.__add__(b, [7])
     assert a == [2, 3, 4]
-    assert b == [2, 3, 4, 5]
+    assert b == [2, 3, 4, 5, 6, 7]
 
 def test43 () :
     a = [2, 3, 4]
@@ -366,6 +391,7 @@ def test44 () :
     y = x
     assert x is y
     y += (5,)
+#   y.iadd((6,))             # AttributeError: 'tuple' object has no attribute 'iadd'
     assert x == (2, 3, 4)
     assert y == (2, 3, 4, 5)
 
@@ -380,8 +406,10 @@ def test46 () :
     y = x
     assert x is y
     y = y + (5,)
+    y = y.__add__((6,))
+    y = tuple.__add__(y, (7,))
     assert x == (2, 3, 4)
-    assert y == (2, 3, 4, 5)
+    assert y == (2, 3, 4, 5, 6, 7)
 
 def test47 () :
     u = (2, 3, 4)
