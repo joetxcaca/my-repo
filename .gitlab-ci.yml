@@ -8,10 +8,9 @@ java:
     script:
     - ls -al
     - cd java
-    - ls -al
     - cat Makefile
-    - ls -al
     - make versions
+    - ls -al
     - make run
     - ls -al
 
@@ -20,9 +19,8 @@ python:
     script:
     - ls -al
     - cd python
-    - ls -al
     - cat Makefile
-    - ls -al
     - make versions
+    - ls -al
     - make run
     - ls -al

@@ -35,7 +35,9 @@ FILES  :=                   \
     IsPrimeT                \
     Exceptions              \
     Types                   \
-    FactorialT
+    FactorialT              \
+    ReduceT                 \
+    Operators
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
@@ -54,9 +56,6 @@ clean:
 	rm -f  *.pyc
 	rm -rf __pycache__
 	rm -rf .mypy_cache
-
-docker:
-	docker run --rm -i -t -v $(PWD):/usr/python -w /usr/python gpdowning/python
 
 run: $(FILES:=.pyx)
 
