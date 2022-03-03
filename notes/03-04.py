@@ -1,5 +1,5 @@
 # -----------
-# Wed,  2 Mar
+# Fri,  4 Mar
 # -----------
 
 """
@@ -141,95 +141,6 @@ https://www.cs.utexas.edu/users/downing/cs373/Groups.html
 """
 
 """
-CATME peer review
-operators
 iteration
 """
 
-def test48 () :
-    i = 3
-    j = 5
-    k = 7
-    l = 8
-    assert (i < j) and (j < k) and (k < l)
-    assert i < j < k < l
-
-def test49 () :
-    i = 10
-    j = 12
-    i, j = j, i    # parallel assignment
-    i, j = f(...), g(...)
-    i, j, k = 2, 3, 4
-    assert i == 12
-    assert j == 10
-
-def test50 () :
-    a = [2, 3]
-    i, j = a      # what has to be true about a? iterable of length 2
-    assert i == 2
-    assert j == 3
-
-
-# Java
-
-class A {
-	static int k = 4; # class    variable
-	int i;            # instance variable
-	int j;
-}
-
-def test51 () :
-    class A :
-        k = 4 # class variable
-
-        def __init__ (self, i, j) :
-            self.i = i # instance variables
-            self.j = j
-
-    x = A(2, 3)
-    assert x.i == 2 # instance variable
-    assert x.j == 3
-    assert A.k == 4 # class variable
-	assert x.k == 4 # yes, misleading
-
-a = [2, 3, 4]
-print(type(a)) # list
-
-p = iter(a)    # a.__iter__()
-print(type(p)) # list iterator
-
-print(a is p)  # false
-
-q = iter(p)    # !!! returns p!!!
-print(q is p)  # true!!!
-
-a = deque([2, 3, 4]) # linked list, can't index
-
-"""
-we have two functions, f and g
-invoke f() on the first two elements of a
-invoke g() on the remaining elements of a
-"""
-
-p = iter(a)
-print(type(p)) # deque iterator
-
-f(next(p))     # p.__next__(), 1st elem
-f(next(p))     # 2nd elem
-
-try :
-	while True :
-		g(next(p))
-except StopIteration :
-	pass
-
-for v in p :
-	g(v)     # !!!!!
-
-q = iter(p)  # q is p!!!!
-
-try :
-	while True :
-		g(next(q))
-except StopIteration :
-	pass
