@@ -37,7 +37,8 @@ FILES  :=                   \
     Types                   \
     FactorialT              \
     ReduceT                 \
-    Operators
+    Operators               \
+    Iteration
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
@@ -76,6 +77,7 @@ sync:
     --include "Exceptions.py"              \
     --include "Types.py"                   \
     --include "Operators.py"               \
+    --include "Iteration.py"               \
     --exclude "*"                          \
     ~/examples/python/ .
 	@echo ~/exercises/python/
