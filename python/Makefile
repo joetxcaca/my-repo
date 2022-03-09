@@ -87,6 +87,7 @@ sync:
     --include "IsPrimeT.py"                \
     --include "FactorialT.py"              \
     --include "ReduceT.py"                 \
+    --include "DigitsIteratorT.py"         \
     --exclude "*"                          \
     ~/exercises/python/ .
 
