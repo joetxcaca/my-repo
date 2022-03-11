@@ -39,7 +39,9 @@ FILES  :=                   \
     ReduceT                 \
     Operators               \
     Iteration               \
-    Comprehensions
+    Comprehensions          \
+    Iterables               \
+    Functions
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
@@ -80,6 +82,8 @@ sync:
     --include "Operators.py"               \
     --include "Iteration.py"               \
     --include "Comprehensions.py"          \
+    --include "Iterables.py"               \
+    --include "Functions.py"               \
     --exclude "*"                          \
     ~/examples/python/ .
 	@echo ~/exercises/python/
