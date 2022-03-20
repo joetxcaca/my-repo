@@ -28,7 +28,18 @@ def test_iterator (p: typing.Iterator[int]) :
     except StopIteration :
         pass
 
-def my_iterator () :
+class my_iterator_1 :
+    def __init__ (self) :
+        self.a = [2, 3, 4]
+        self.p = iter(self.a)
+
+    def __iter__ (self) :
+        return self
+
+    def __next__ (self) :
+        return next(self.p)
+
+def my_iterator_2 () :
     for v in range(2, 5) :
         yield v
 
@@ -42,7 +53,8 @@ def test1 () :
     test_iterator(v for v in [2, 3, 4])                 # generator
     test_iterator(   map(lambda v : v,    [2, 3, 4]))
     test_iterator(filter(lambda v : True, [2, 3, 4]))
-    test_iterator(my_iterator())
+    test_iterator(my_iterator_1())
+    test_iterator(my_iterator_2())
 
 def test_container (x: typing.Iterable[int]) :
     assert not hasattr(x, "__next__")
@@ -51,7 +63,24 @@ def test_container (x: typing.Iterable[int]) :
     assert p is not x
     test_iterator(p)
 
-class my_container :
+class my_container_1 :
+    class iterator :
+        def __init__ (self, p) :
+            self.p = p
+
+        def __iter__ (self) :
+            return self
+
+        def __next__ (self) :
+            return next(self.p)
+
+    def __init__ (self) :
+        self.a = [2, 3, 4]
+
+    def __iter__ (self) :
+        return my_container_1.iterator(iter(self.a)) # self.iterator(iter(self.a)) also works
+
+class my_container_2 :
     def __iter__ (self) :
         for v in range(2, 5) :
             yield v
@@ -63,7 +92,8 @@ def test2 () :
     test_container({2: "abc", 3: "def", 4: "ghi"}) # dict
     test_container([v for v in [2, 3, 4]])         # list comprehension
     test_container(range(2, 5))
-    test_container(my_container())
+    test_container(my_container_1())
+    test_container(my_container_2())
 
 def main () :
     print("Iterables.py")

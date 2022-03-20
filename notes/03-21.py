@@ -157,3 +157,11 @@ Takeaways:
  9. lambdas capture names!!!
 """
 
+"""
+Integrated 5-Year CS BS/MS Program
+https://www.cs.utexas.edu/undergraduate/academics/curriculum-degree-plans/5-year-cs-bsms/
+Info Session
+Tue, 29 Mar, 6 pm
+Zoom
+"""
+
