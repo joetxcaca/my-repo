@@ -41,7 +41,8 @@ FILES  :=                   \
     Iteration               \
     Comprehensions          \
     Iterables               \
-    Functions
+    Functions               \
+    Decorators
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
@@ -84,6 +85,7 @@ sync:
     --include "Comprehensions.py"          \
     --include "Iterables.py"               \
     --include "Functions.py"               \
+    --include "Decorators.py"              \
     --exclude "*"                          \
     ~/examples/python/ .
 	@echo ~/exercises/python/
