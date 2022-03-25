@@ -42,7 +42,10 @@ FILES  :=                   \
     Comprehensions          \
     Iterables               \
     Functions               \
-    Decorators
+    Decorators              \
+    FunctionDefaults        \
+    FunctionKeywords        \
+    FunctionUnpacking
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
@@ -86,6 +89,9 @@ sync:
     --include "Iterables.py"               \
     --include "Functions.py"               \
     --include "Decorators.py"              \
+    --include "FunctionDefaults.py"        \
+    --include "FunctionKeywords.py"        \
+    --include "FunctionUnpacking.py"       \
     --exclude "*"                          \
     ~/examples/python/ .
 	@echo ~/exercises/python/

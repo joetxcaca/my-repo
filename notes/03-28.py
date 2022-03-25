@@ -1,5 +1,5 @@
 # -----------
-# Wed, 23 Mar
+# Mon, 28 Mar
 # -----------
 
 """
@@ -155,6 +155,7 @@ Takeaways:
  7. generators are iterators
  8. generators and map and filter capture objects!!!
  9. lambdas capture names!!!
+10. avoid mutable defaults
 """
 
 """
@@ -169,43 +170,8 @@ Zoom
 P3 moved to Tue, 29 Mar
 """
 
-class cache :
-    def __init__ (self, f) :
-        ...
-
-    def __call__ (self, n) :
-        ...
-
-@cache
-def fibonacci (n) :
-    if n < 2 :
-        return n
-    return fibonacci(n - 1) + fibonacci(n - 2)
-
-def test0 () :
-    assert isinstance(fibonacci, cache)
-    assert fibonacci(0) == 0
-    assert fibonacci.d == {0: 0}
-
-def test1 () :
-    assert fibonacci(3) == 2
-    assert fibonacci.d == {0: 0, 1: 1, 2: 1, 3: 2}
-
-def test2 () :
-    assert fibonacci(5) == 5
-    assert fibonacci.d == {0: 0, 1: 1, 2: 1, 3: 2, 4: 3, 5: 5}
-
 """
-fibonacci starts as a function
-fibonacci ends   as an instance of class cache
+function tuple
+function dict
 """
 
-class cache :
-    def __init__ (self, f) :
-        self.d = {}
-        self.f = f
-
-    def __call__ (self, n) :
-        if n not in self.d :
-            self.d[n] = self.f(n)
-        return self.d[n]
