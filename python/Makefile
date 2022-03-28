@@ -45,7 +45,9 @@ FILES  :=                   \
     Decorators              \
     FunctionDefaults        \
     FunctionKeywords        \
-    FunctionUnpacking
+    FunctionUnpacking       \
+    FunctionTuple           \
+    FunctionDict
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
@@ -92,6 +94,8 @@ sync:
     --include "FunctionDefaults.py"        \
     --include "FunctionKeywords.py"        \
     --include "FunctionUnpacking.py"       \
+    --include "FunctionTuple.py"           \
+    --include "FunctionDict.py"            \
     --exclude "*"                          \
     ~/examples/python/ .
 	@echo ~/exercises/python/
