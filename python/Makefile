@@ -47,7 +47,8 @@ FILES  :=                   \
     FunctionKeywords        \
     FunctionUnpacking       \
     FunctionTuple           \
-    FunctionDict
+    FunctionDict            \
+    RegExps
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
@@ -96,6 +97,7 @@ sync:
     --include "FunctionUnpacking.py"       \
     --include "FunctionTuple.py"           \
     --include "FunctionDict.py"            \
+    --include "RegExps.py"                 \
     --exclude "*"                          \
     ~/examples/python/ .
 	@echo ~/exercises/python/
