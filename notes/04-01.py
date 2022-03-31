@@ -103,44 +103,6 @@ remember to go to Perusall THROUGH Canvas
 """
 
 """
-Project #3: IDB2
-	 1. provide feedback to your development team about the 5 user stories
-	 2. provide 5 new user stories to your development team
-	 3. collect data on many instances
-	 4. create a DB
-	 5. change your site from being static to dynamic
-	 6. implement your API
-	 7. your backend must provide the API, your frontend must consume the API
-	 8. splash page
-	 9. 3 model pages (tables with cards, show 5 attributes per card)
-	10. add pagination to the model pages
-	 	a. how many instances total
-	 	b. how many pages total
-	 	c. next page
-	 	d. previous page
-	 	e. first page
-	 	f. last page
-	 	g. what page am I on
-	11. MANY instance pages (a lot of text AND rich media: feeds, images, videos, etc.)
-	12. about page (dynamic from GitLab with a RESTful API)
-	13. unit tests
-	 	a. API with Postman
-	 	b. frontend with JavaScript
-	 	c. backend with Python
-	14. acceptance tests of the GUI with Selenium
-	15. technical report (very important, SWE is has a writing flag)
-	16. UML diagram
-	17. schedule your weekly meeting with the TA
-	18. be responsive to your teammates and your mentor TA on Discord
-	19. be responsive to the other two teams that you're connected to on Canvas
-
-https://www.cs.utexas.edu/users/downing/cs373/Groups.html
-
-IDB2 rubric is out
-IDB1 peer reviews were published by CATME
-"""
-
-"""
 Takeaways:
 
  1. assertions are not good for testing
@@ -156,6 +118,7 @@ Takeaways:
 """
 
 """
+CATME
 IDB3
 regexps, 17
 select
