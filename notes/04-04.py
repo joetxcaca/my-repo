@@ -1,5 +1,5 @@
 # -----------
-# Fri,  1 Apr
+# Mon,  4 Apr
 # -----------
 
 """
@@ -118,81 +118,6 @@ Takeaways:
 """
 
 """
-CATME
-IDB3
-regexps, 17
-relational algebra
 select
 """
 
-import re # sub
-
-def test17 () :
-    s = "b ab\naab 123"
-    t = re.sub("b ", "xx", s)
-    assert s == "b ab\naab 123"
-    assert t == "xxab\naaxx123"
-
-def test18 () :
-    s = "b ab\naab 123"
-    t = re.sub("b.", "xx", s)
-    assert s == "b ab\naab 123"
-    assert t == "xxab\naaxx123"
-
-def test19 () :
-    s = "b ab\naab 123"
-    t = re.sub("", "z", s)
-    assert s == "b ab\naab 123"
-    assert t == "zbz zazbz\nzazazbz z1z2z3z"
-
-"""
-relational algebra
-"""
-
-"""
-algebra
-	a set of elements
-	a set of operations
-	open or closed
-"""
-
-"""
-integer arithmetic
-	the integers
-	+ (closed), - (closed), / (open), * (closed), % (closed)
-"""
-
-"""
-relational algebra
-	relations (tables)
-	select, project, join (many flavors)
-"""
-
-"""
-movie table (movies)
-
-title       genre     director         year
-"star wars" "sci-fi"  "george lucas"   1977
-"shane"     "western" "george stevens" 1954
-...
-"""
-
-"""
-select
-	a relation
-	a unary predicate (a unary function that returns a bool)
-	results in another relation ONLY with rows that satisfy the predicate
-"""
-
-select(movies, <((year > 1970) and (year < 2000))>)
-
-movies = \
-	[
-	{"title":"star wars", "genre":"sci-fi", "director":"george lucas", "year":1977}
-	...
-	]
-
-select(movies, lambda d : d["year"] > 1970 and d["year"] < 2000)
-
-def select (r, up) :
-	...

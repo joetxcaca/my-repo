@@ -101,6 +101,7 @@ def test14 () :
     s = "b ab\naab 123"
     m = re.search("(a*)b([^a]*)(a*)b", s) # * is zero or more
     assert isinstance(m, re.Match)
+    assert not hasattr(m, "__iter__")
     assert m.group(0) == "b ab"
     assert m.group(1) == ""
     assert m.group(2) == " "
