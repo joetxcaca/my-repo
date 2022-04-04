@@ -119,5 +119,120 @@ Takeaways:
 
 """
 select
+	a relation (list of dicts)
+	unary predicate (a one-arg function that returns a bool)
+
+return a generator that iterates over only the rows that satisfy the predicate
 """
 
+"""
+select as a function
+"""
+
+def select (r, up) :
+	... # must use yield, which automatically raise StopIteration
+	    # can NOT assume that r is indexable
+	    # must NOT raise StopIteration
+
+
+"""
+select as a class
+"""
+
+class select :
+# can NOT assume that r is indexable
+# must NOT raise StopIteration
+	__iter__
+	__next__
+	__init__
+
+def test0 () :
+    r = [
+        {"A" : 1, "B" : 4, "C" : 3},
+        {"A" : 2, "B" : 5, "C" : 2},
+        {"A" : 3, "B" : 6, "C" : 1}]
+    x = select(r, lambda d : False)
+    assert list(x) == []
+
+def test1 () :
+    r = [
+        {"A" : 1, "B" : 4, "C" : 3},
+        {"A" : 2, "B" : 5, "C" : 2},
+        {"A" : 3, "B" : 6, "C" : 1}]
+    x = select(r, lambda d : True)
+    assert                            \
+        list(x)                       \
+        ==                            \
+        [{"A" : 1, "B" : 4, "C" : 3},
+         {"A" : 2, "B" : 5, "C" : 2},
+         {"A" : 3, "B" : 6, "C" : 1}]
+    assert list(x) == []
+
+def test2 () :
+    r = [
+        {"A" : 1, "B" : 4, "C" : 3},
+        {"A" : 2, "B" : 5, "C" : 2},
+        {"A" : 3, "B" : 6, "C" : 1}]
+    x = select(r, lambda d : d["B"] > 4)
+    assert                               \
+        list(x)                          \
+        ==                               \
+        [{'A': 2, 'B': 5, 'C': 2},
+         {'A': 3, 'B': 6, 'C': 1}]
+    assert list(x) == []
+
+def test3 () :
+    r = [
+        {"A" : 1, "B" : 4, "C" : 3},
+        {"A" : 2, "B" : 5, "C" : 2},
+        {"A" : 3, "B" : 6, "C" : 1}]
+    x = select(r, lambda d : d["A"] > d["C"])
+    assert                                    \
+        list(x)                               \
+        ==                                    \
+        [{'A': 3, 'B': 6, 'C': 1}]
+    assert list(x) == []
+
+
+
+
+class select_class_while :
+    def __init__ (self, r, f) :
+        self.p = iter(r)
+        self.f = f
+
+    def __iter__ (self) :
+        return self
+
+    def __next__ (self) :
+        while True :
+            d = next(self.p)
+            if self.f(d) :
+                return d
+
+
+class select_class_recursion :
+    def __init__ (self, r, f) :
+        self.p = iter(r)
+        self.f = f
+
+    def __iter__ (self) :
+        return self
+
+    def __next__ (self) :
+        d = next(self.p)
+        if self.f(d) :
+            return d
+        return next(self)
+
+
+def select_function_yield (r, f) :
+    for d in r :
+        if f(d) :
+            yield d
+
+def select_function_generator (r, f) :
+    return (d for d in r if f(d))
+
+def select_function_filter (r, f) :
+    return filter(f, r)
