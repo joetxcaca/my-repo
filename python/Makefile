@@ -49,7 +49,8 @@ FILES  :=                   \
     FunctionTuple           \
     FunctionDict            \
     RegExps                 \
-    SelectT
+    SelectT                 \
+    ProjectT
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
@@ -108,6 +109,7 @@ sync:
     --include "ReduceT.py"                 \
     --include "DigitsIteratorT.py"         \
     --include "SelectT.py"                 \
+    --include "ProjectT.py"                \
     --exclude "*"                          \
     ~/exercises/python/ .
 
