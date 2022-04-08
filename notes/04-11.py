@@ -1,5 +1,5 @@
 # -----------
-# Fri,  8 Apr
+# Mon, 11 Apr
 # -----------
 
 """
@@ -25,49 +25,6 @@ Takeaways:
 """
 
 """
-relational algebra
-	select
-		a relation
-		a unary predicate (a one-arg function that returns a bool)
-		return a relation with less than or equal rows, same cols
-	project
-		a relation
-		names of the cols
-		return a relation with less than or equal cols, same rows
-	cross join
-		a relation
-		a relation
-		returns every combination of rows in the first and rows in the second
+theta join
+natural join
 """
-
-
-"""
-student table
-
-sID sName GPA sizeHS
-...
-"""
-
-"""
-college table
-
-cName state enrollment
-...
-"""
-
-"""
-apply table
-
-sID cName major decision
-...
-"""
-
-class cross_join
-	# no yield
-	# can't assume indexable
-	init (r, s)
-	iter
-	next
-
-def cross_join (r, s)
-	# yield
