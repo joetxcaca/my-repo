@@ -50,7 +50,8 @@ FILES  :=                   \
     FunctionDict            \
     RegExps                 \
     SelectT                 \
-    ProjectT
+    ProjectT                \
+    CrossJoinT
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
@@ -110,6 +111,7 @@ sync:
     --include "DigitsIteratorT.py"         \
     --include "SelectT.py"                 \
     --include "ProjectT.py"                \
+    --include "CrossJoinT.py"              \
     --exclude "*"                          \
     ~/exercises/python/ .
 
