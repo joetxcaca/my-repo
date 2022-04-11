@@ -51,7 +51,8 @@ FILES  :=                   \
     RegExps                 \
     SelectT                 \
     ProjectT                \
-    CrossJoinT
+    CrossJoinT              \
+    NaturalJoinT
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
@@ -112,6 +113,7 @@ sync:
     --include "SelectT.py"                 \
     --include "ProjectT.py"                \
     --include "CrossJoinT.py"              \
+    --include "NaturalJoinT.py"            \
     --exclude "*"                          \
     ~/exercises/python/ .
 
