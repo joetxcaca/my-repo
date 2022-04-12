@@ -12,7 +12,23 @@
 import typing
 import unittest
 
-class project_class :
+class project_class_1 :
+    def __init__ (self, r, *t) :
+        self.p = iter(r)
+        self.t = t
+
+    def __iter__ (self) :
+        return self
+
+    def __next__ (self) :
+        d = next(self.p)
+        x = {}
+        for k in self.t :
+            if k in d :
+                x[k] = d[k]
+        return x
+
+class project_class_2 :
     def __init__ (self, r, *t) -> None :
         self.p = iter(r)
         self.t = t
@@ -45,7 +61,8 @@ def project_function_generator (r: typing.Iterable[typing.Dict[str, int]], *t: s
 class MyUnitTests (unittest.TestCase) :
     def setUp (self) :
         self.a = [
-            project_class,
+            project_class_1,
+            project_class_2,
             project_function_yield_1,
             project_function_yield_2,
             project_function_generator]
