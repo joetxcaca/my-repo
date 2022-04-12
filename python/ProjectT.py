@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#/usr/bin/env python3
 
 # pylint: disable = invalid-name
 # pylint: disable = missing-docstring
@@ -62,7 +62,7 @@ class MyUnitTests (unittest.TestCase) :
                 self.assertEqual(
                     list(x),
                     [{}, {}, {}])
-                self.assertEqual(list(x), [])
+                self.assertFalse(list(x))
 
     def test1 (self) :
         for f in self.a :
@@ -73,7 +73,7 @@ class MyUnitTests (unittest.TestCase) :
                     [{'B': 4},
                      {'B': 5},
                      {'B': 6}])
-                self.assertEqual(list(x), [])
+                self.assertFalse(list(x))
 
     def test2 (self) :
         for f in self.a :
@@ -84,7 +84,7 @@ class MyUnitTests (unittest.TestCase) :
                     [{'A': 1, 'C': 3},
                      {'A': 2, 'C': 2},
                      {'A': 3, 'C': 1}])
-                self.assertEqual(list(x), [])
+                self.assertFalse(list(x))
 
 if __name__ == "__main__" :
     unittest.main()

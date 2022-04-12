@@ -61,7 +61,7 @@ class MyUnitTests (unittest.TestCase) :
                      {'A': 3, 'B': 6, 'C': 3, 'D': 5},
                      {'A': 3, 'B': 6, 'C': 3, 'D': 6},
                      {'A': 3, 'B': 6, 'C': 4, 'D': 6}])
-                self.assertEqual(list(x), [])
+                self.assertFalse(list(x))
 
 if __name__ == "__main__" :
     unittest.main()

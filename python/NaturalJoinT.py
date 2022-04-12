@@ -19,7 +19,7 @@ def theta_join (
         -> typing.Iterator[typing.Dict[str, int]]                          :
     return ({**u, **v} for u in r for v in s if f(u, v))
 
-def natural_join_1 (
+def natural_join_for (
         r: typing.Iterable[typing.Dict[str, int]],
         s: typing.Iterable[typing.Dict[str, int]]) \
         -> typing.Iterator[typing.Dict[str, int]]  :
@@ -30,7 +30,7 @@ def natural_join_1 (
         return True
     return theta_join(r, s, bp)
 
-def natural_join_2 (
+def natural_join_all (
         r: typing.Iterable[typing.Dict[str, int]],
         s: typing.Iterable[typing.Dict[str, int]]) \
         -> typing.Iterator[typing.Dict[str, int]]  :
@@ -38,7 +38,7 @@ def natural_join_2 (
         return all(u[k] == v[k] for k in u if k in v)
     return theta_join(r, s, bp)
 
-def natural_join_3 (
+def natural_join_lambda (
         r: typing.Iterable[typing.Dict[str, int]],
         s: typing.Iterable[typing.Dict[str, int]]) \
         -> typing.Iterator[typing.Dict[str, int]]  :
@@ -47,9 +47,9 @@ def natural_join_3 (
 class MyUnitTests (unittest.TestCase) :
     def setUp (self) :
         self.a = [
-            natural_join_1,
-            natural_join_2,
-            natural_join_3]
+            natural_join_for,
+            natural_join_all,
+            natural_join_lambda]
         self.r = []
         self.s = []
 
@@ -82,7 +82,7 @@ class MyUnitTests (unittest.TestCase) :
                      {'A': 3, 'B': 6, 'C': 3, 'D': 5},
                      {'A': 3, 'B': 6, 'C': 3, 'D': 6},
                      {'A': 3, 'B': 6, 'C': 4, 'D': 6}])
-                self.assertEqual(list(x), [])
+                self.assertFalse(list(x))
 
     def test1 (self) :
         self.r = [
@@ -99,7 +99,7 @@ class MyUnitTests (unittest.TestCase) :
         for f in self.a :
             with self.subTest() :
                 x = f(self.r, self.s)
-                self.assertEqual(list(x), [])
+                self.assertFalse(list(x))
 
     def test2 (self) :
         self.r = [
@@ -119,7 +119,7 @@ class MyUnitTests (unittest.TestCase) :
                 self.assertEqual(
                     list(x),
                     [{'A': 3, 'B': 6, 'C': 9, 'D': 6}])
-                self.assertEqual(list(x), [])
+                self.assertFalse(list(x))
 
 if __name__ == "__main__" :
     unittest.main()

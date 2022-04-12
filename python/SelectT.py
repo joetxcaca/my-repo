@@ -82,8 +82,8 @@ class MyUnitTests (unittest.TestCase) :
         for f in self.a :
             with self.subTest(msg=f.__name__) :
                 x = f(self.r, lambda d : False)
-                self.assertEqual(list(x), [])
-                self.assertEqual(list(x), [])
+                self.assertFalse(list(x))
+                self.assertFalse(list(x))
 
     def test1 (self) :
         for f in self.a :
@@ -94,7 +94,7 @@ class MyUnitTests (unittest.TestCase) :
                     [{"A" : 1, "B" : 4, "C" : 3},
                      {"A" : 2, "B" : 5, "C" : 2},
                      {"A" : 3, "B" : 6, "C" : 1}])
-                self.assertEqual(list(x), [])
+                self.assertFalse(list(x))
 
     def test2 (self) :
         for f in self.a :
@@ -104,7 +104,7 @@ class MyUnitTests (unittest.TestCase) :
                     list(x),
                     [{'A': 2, 'B': 5, 'C': 2},
                      {'A': 3, 'B': 6, 'C': 1}])
-                self.assertEqual(list(x), [])
+                self.assertFalse(list(x))
 
     def test3 (self) :
         for f in self.a :
@@ -113,7 +113,7 @@ class MyUnitTests (unittest.TestCase) :
                 self.assertEqual(
                     list(x),
                     [{'A': 3, 'B': 6, 'C': 1}])
-                self.assertEqual(list(x), [])
+                self.assertFalse(list(x))
 
 if __name__ == "__main__" :
     unittest.main()
