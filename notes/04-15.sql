@@ -1,13 +1,13 @@
-# -----------
-# Wed, 13 Apr
-# -----------
+-- -----------
+-- Fri, 15 Apr
+-- -----------
 
-"""
+/*
 Paper #11: More getters and setters
 remember to go to Perusall THROUGH Canvas
-"""
+*/
 
-"""
+/*
 Takeaways:
 
  1. assertions are not good for testing
@@ -22,9 +22,8 @@ Takeaways:
 10. avoid mutable defaults
 11. relational algebra is closed on all operations
 12. Python, C, Java are procedural; SQL is declarative
-"""
+*/
 
-"""
+/*
 SQL
-"""
-
+*/
