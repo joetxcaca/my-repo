@@ -17,6 +17,6 @@ sync:
     ~/examples/sql/ .
 	@echo ~/exercises/sql/
 	@rsync -r -t -u -v --delete            \
-    --include "Select3.sql"                \
+    --include "Select3T.sql"               \
     --exclude "*"                          \
     ~/exercises/sql/ .
