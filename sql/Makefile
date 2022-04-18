@@ -12,9 +12,11 @@ sync:
     --include "Insert.sql"                 \
     --include "Select.sql"                 \
     --include "Like.sql"                   \
+    --include "Join.sql"                   \
     --exclude "*"                          \
     ~/examples/sql/ .
 	@echo ~/exercises/sql/
 	@rsync -r -t -u -v --delete            \
+    --include "Select3.sql"                \
     --exclude "*"                          \
     ~/exercises/sql/ .
