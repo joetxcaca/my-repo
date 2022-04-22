@@ -28,6 +28,8 @@ sync:
     ~/examples/java/ .
 	@echo ~/exercises/java/
 	@rsync -r -t -u -v --delete            \
+    --include "StrategyPattern1.java"      \
+    --include "StrategyPattern2.java"      \
     --exclude "*"                          \
     ~/exercises/java/ .
 
