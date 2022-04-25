@@ -1,7 +1,11 @@
 .DEFAULT_GOAL := all
 
 FILES :=                    \
-    Hello
+    Hello                   \
+    StrategyPattern1        \
+    StrategyPattern2        \
+    StrategyPattern3        \
+    StrategyPattern4
 
 %.class: %.java
 	javac -Xlint $<
@@ -30,6 +34,8 @@ sync:
 	@rsync -r -t -u -v --delete            \
     --include "StrategyPattern1.java"      \
     --include "StrategyPattern2.java"      \
+    --include "StrategyPattern3.java"      \
+    --include "StrategyPattern4.java"      \
     --exclude "*"                          \
     ~/exercises/java/ .
 
