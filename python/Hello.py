@@ -57,8 +57,8 @@ Python 3.9.10 (main, Jan 15 2022, 11:48:04)
 [Clang 13.0.0 (clang-1300.0.29.3)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 
->>> import Hello
-Nothing to be done.
+>>> import Hello # no print!
+
 
 >>> quit()
 
