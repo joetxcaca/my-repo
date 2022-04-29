@@ -5,7 +5,10 @@ FILES :=                    \
     StrategyPattern1        \
     StrategyPattern2        \
     StrategyPattern3        \
-    StrategyPattern4
+    StrategyPattern4        \
+    StrategyPattern5        \
+    StrategyPattern6        \
+    StrategyPattern8
 
 %.class: %.java
 	javac -Xlint $<
@@ -36,6 +39,9 @@ sync:
     --include "StrategyPattern2.java"      \
     --include "StrategyPattern3.java"      \
     --include "StrategyPattern4.java"      \
+    --include "StrategyPattern5.java"      \
+    --include "StrategyPattern6.java"      \
+    --include "StrategyPattern8.java"      \
     --exclude "*"                          \
     ~/exercises/java/ .
 
